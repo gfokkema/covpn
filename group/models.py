@@ -1,11 +1,5 @@
 from django.db import models
-
-
-class Group(models.Model):
-    name = models.CharField(max_length=20)
-
-    def __str__(self):
-        return self.name
+from django.contrib.auth.models import Group
 
 
 class Config(models.Model):
@@ -14,7 +8,7 @@ class Config(models.Model):
     value = models.CharField(max_length=100)
 
     def __str__(self):
-        return "({}) \"{} {}\"".format(self.group, self.option, self.value)
+        return "{0.option} {0.value}".format(self)
 
 
 class Route(models.Model):
@@ -25,4 +19,5 @@ class Route(models.Model):
     metric = models.IntegerField(blank=True, default=0)
 
     def __str__(self):
-        return "({}) \"{}/{}\"".format(self.group, self.ip, self.mask)
+        params = filter(None, [self.gateway, self.metric])
+        return ' '.join(['route {0.ip} {0.mask}'.format(self), *params])
