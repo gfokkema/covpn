@@ -1,0 +1,6 @@
+{% for c in config %}
+push "{{ c.option }} {{ c.value }}"
+{% endfor %}
+{% for r in routes %}
+push "{{ r.ip }} {{ r.mask }}"
+{% endfor %}

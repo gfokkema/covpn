@@ -1,0 +1,30 @@
+#sidebar {
+    width: 120px;
+    position: fixed;
+    overflow: auto;
+}
+
+#sidebar a {
+    color: green;
+}
+
+#content {
+    margin-left: 120px;
+}
+
+.table {
+    display: table;
+}
+
+.table .head {
+    font-weight: bold;
+}
+
+.table div {
+    display: table-row;
+}
+
+.table div div {
+    display: table-cell;
+    padding: 0px 5px;
+}

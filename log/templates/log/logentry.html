@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}VPN Attributes{% endblock %}
+
+{% block content%}
+<div class="table">
+  <div class="head">
+    <div>Name</div>
+    <div>Value</div>
+  </div>
+{% for a in attr|dictsort:"name" %}
+  <div>
+    <div>{{ a.name }}</div>
+    <div>{{ a.value }}</div>
+  </div>
+{% endfor %}
+</div>
+{% endblock %}
