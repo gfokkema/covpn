@@ -15,14 +15,14 @@ class LogType(Enum):
 
     @classmethod
     def list(cls):
-        return list(map(lambda c: (c.name, c.value), cls))
+        return list(map(lambda c: (c.value, c.name), cls))
 
 
 class LogEntry(models.Model):
     type = models.CharField(max_length=25, choices=LogType.list())
 
     def __str__(self):
-        return "{0.pk} ({0.type})".format(self)
+        return "{0.pk} - {0.type}".format(self)
 
 
 class LogEntryAttr(models.Model):
@@ -31,7 +31,7 @@ class LogEntryAttr(models.Model):
     value = models.CharField(max_length=100)
 
     def __str__(self):
-        return "{}: {} = {}".format(self.logentry, self.name, self.value)
+        return "{0.name} = {0.value}".format(self)
 
 
 def create_log_entry(type, **attr):
