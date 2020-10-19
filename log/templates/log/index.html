@@ -1,18 +1,24 @@
-{% extends "base.html" %}
+{% extends "base_module.html" %}
 
 {% block title %}VPN Log Entries{% endblock %}
 
 {% block content%}
-<div class="table">
-  <div class="head">
-    <div>ID</div>
-    <div>type</div>
-  </div>
-{% for l in log %}
-  <div>
-    <div><a href="/log/{{ l.pk }}">{{ l.pk }}</a></div>
-    <div>{{ l.type }}</div>
-  </div>
-{% endfor %}
+<div class="mui-container-fluid">
+    <table class="mui-table mui-table--bordered">
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Type</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for l in log %}
+            <tr>
+                <td><a href="/log/{{ l.pk }}">{{ l.pk }}</a></td>
+                <td>{{ l.type }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </div>
-{% endblock %}
+{% endblock content %}

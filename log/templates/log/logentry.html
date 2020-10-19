@@ -1,18 +1,24 @@
-{% extends "base.html" %}
+{% extends "base_module.html" %}
 
-{% block title %}VPN Attributes{% endblock %}
+{% block title %}VPN Log Entry{% endblock %}
 
 {% block content%}
-<div class="table">
-  <div class="head">
-    <div>Name</div>
-    <div>Value</div>
-  </div>
-{% for a in attr|dictsort:"name" %}
-  <div>
-    <div>{{ a.name }}</div>
-    <div>{{ a.value }}</div>
-  </div>
-{% endfor %}
+<div class="mui-container-fluid">
+    <table class="mui-table mui-table--bordered">
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Value</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for a in attr|dictsort:"name" %}
+            <tr>
+                <td>{{ a.name }}</td>
+                <td>{{ a.value }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </div>
-{% endblock %}
+{% endblock content %}
