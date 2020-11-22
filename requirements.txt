@@ -1,2 +1,4 @@
 Django
+hvac
 mysqlclient
+python-terraform

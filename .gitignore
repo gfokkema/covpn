@@ -1,4 +1,6 @@
 __pycache__
 *.swp
+.terraform
 /covpn/settings/site_settings.py
+/terraform/terraform.tfstate*
 /venv

@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'certs.apps.CertsConfig',
     'group.apps.GroupConfig',
     'log.apps.LogConfig',
     'django.contrib.admin',
@@ -126,3 +127,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
   BASE_DIR / 'static',
 ]
+
+
+VAULT = {
+    'URL': 'http://localhost:8200',
+    'PKI_PATH': '/pki',
+    'TF_PATH': BASE_DIR / 'terraform',
+}
